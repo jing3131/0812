@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <canvas id="myCanvas" width="400" height="300" style="border:1px solid #000000;"></canvas>
+
+    <script>
+        // 1. 找出 Canvas
+        var c = document.getElementById("myCanvas");
+
+        // 2. 傳回 2D 繪圖引擎物件
+        var ctx = c.getContext("2d");
+
+        // 用藍色畫出圖片外框
+        ctx.strokeStyle = "blue";               // 外框顏色
+        ctx.strokeRect(0,0,200,50);             // 外框範圍
+
+        // 以黑色塗滿圖片下緣製作出黑底區塊
+        ctx.fillStyle = "black";                // 填滿顏色
+        ctx.fillRect(0,35,200,15);              // 填滿範圍
+
+        // 置中對齊輸出文字
+        ctx.font = "24px Arial italic";
+        ctx.textBaseline = "top";               // 對齊上方
+        ctx.textAlign = "center";               // 文字置中
+        ctx.fillText("Signin Seal",100,5);
+    </script>
+
+    
+
+</body>
+</html>

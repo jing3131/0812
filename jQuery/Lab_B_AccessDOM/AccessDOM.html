@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#btnTry").click(function () {
+        // 在這裏寫程式
+        // id -> #id    class -> .class
+        // $("input[name='radioGroup']").eq(2);      // radioGroup組別的第二個   [] 補充條件
+        // $("#city option:selected");               // 下拉式選單被選取 (radiobutton, checkbox -> :checked)
+
+        //$("#aTextField").prop("value","3312");
+        alert($("#aTextField").prop("value"));
+
+
+
+      });
+
+      let obj = document.getElementById("mousetf");
+      $(obj).mouseenter(function () {
+        $(obj).prop("value", "in");
+      });
+      
+      $(obj).mouseleave(function(){
+        $(obj).prop("value","leave");
+      })
+
+      $("#labeltest").mouseenter(function(){
+        $("#labeltest").css("font-size","20px");
+        $("#labeltest").text("in");
+      });
+      $("#labeltest").mouseleave(function(){
+        $("#labeltest").text("Test_");
+      });
+
+    });
+  </script>
+</head>
+
+<body>
+
+
+  <div id="report">Report:<br></div>
+
+  <hr>
+
+  <form action="" method="put" onsubmit="return false;">
+    <div>
+      <label>Text:</label> <input type="text" id="aTextField" name="someTextField" />
+    </div>
+    <div>
+      <label>Radio group:</label>
+      <input type="radio" name="radioGroup" id="radioA" value="65" /> A
+      <input type="radio" name="radioGroup" id="radioB" value="66" checked="checked" /> B
+      <input type="radio" name="radioGroup" id="radioC" value="67" /> C
+    </div>
+    <div>
+      <label>Checkboxes:</label>
+      <input type="checkbox" name="checkboxes" id="checkbox1" value="1" /> 1
+      <input type="checkbox" name="checkboxes" id="checkbox2" value="2" /> 2
+      <input type="checkbox" name="checkboxes" id="checkbox3" value="3" checked="checked" /> 3
+      <input type="checkbox" name="checkboxes" id="checkbox4" value="4" /> 4
+    </div>
+    <button type="button" id="btnTry">Try</button>
+
+
+
+    <br><br><br>
+    <label id="labeltest"> Test_ </label>
+    <br><br>
+    <div>
+      <label>test</label>
+      <input type="text" name="tname" id="tid" value="valuett"> <!-- value: testfield裡的值 -->
+      <label>test_plhdr</label>
+      <input type="text" name="tplhdrname" id="tplhdrid" placeholder="plhdr_test">
+    </div>
+    <div>
+      <button id="idbtn" name="namebtn">test</button>
+    </div>
+    <div>
+      <select name="ndpdnlist" id="idpdnlist">
+        <option value="option1"></option>
+        <option value="option1">test1</option>
+        <option value="option2">test2</option>
+      </select>
+    </div>
+    <div>
+      <label>rd1</label>
+      <input type="radio" name="rdbtngp" id="rdbtn1" checked="checked">     <!-- checked="checked" -->
+      <label>rd2</label>
+      <input type="radio" name="rdbtngp" id="rdbtn2">
+    </div>
+    <div>
+      <label>ckbx1</label>
+      <input type="checkbox" name="ckboxgp" id="ckbx1">
+      <label>ckbx2</label>
+      <input type="checkbox" name="ckboxgp" id="ckbx2">
+      <label>ckbx3</label>
+      <input type="checkbox" name="ckboxgp" id="ckbx3">
+    </div>
+    <div>
+      <label>submit</label>
+      <input type="submit" name="nsbmbtn" id="isbmbtn">
+    </div>
+    <div>
+      <input type="text" value="A" id="mousetf">
+    </div>
+
+  </form>
+</body>
+
+</html>

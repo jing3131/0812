@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="jquery.qrcode.min.js"></script>
+
+</head>
+
+<body>
+    <form>
+        <label>qrcode_url:</label>
+        <input type="text" id="qrtf">
+
+    </form>
+    <button id="btn">submit</button>
+    <br><br>
+
+    <div id="qrcode"></div>
+    
+
+    <script>
+        $(document).ready(function () {
+            
+            $("#btn").on("click", qrcodeFunction);
+            function qrcodeFunction(){
+                let option = {
+                    width:100,
+                    height:100,
+                    text: $("#qrtf").val()              //https://www.google.com
+                };
+                $("#qrcode").qrcode(option);  
+            }
+
+                       
+        });
+
+    </script>
+</body>
+
+</html>

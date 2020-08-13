@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Testing QR Code</title>
+<script src="jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="jquery.qrcode.min.js"></script>         <!-- 放在jquery後面(屬於jQuery) -->
+
+</head>
+<body>
+
+<div id="qrcode"></div>                                 <!-- 設定QRcode --> 
+
+<script>
+
+$('#qrcode').qrcode("http://www.google.com");           // $("#id").qrcode("url");
+
+</script>
+
+</body>
+</html>

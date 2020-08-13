@@ -1,0 +1,60 @@
+// id -> #id    class -> .class
+// $("input[name='radioGroup']").eq(2);      // radioGroup組別的第二個   [] 補充條件
+// $("#city option:selected");               // 下拉式選單被選取 (radiobutton, checkbox -> :checked)
+
+# Form
+textfield :                 // value -> testfield裡的值
+<input type="radio" name="rdbtngp" id="rdbtn1" checked="checked">       // checked="checked"    (radiobutton、checkbox)初始值會被勾選
+
+# jQuery
+- 設定XY軸
+let x = $(objid).css("left", event.x + "px");               // jQuery -> $("#id").css("left","px");         event.clientX = event.x -> X軸
+let y = $(objid).css("top", event.clientY + "px");          // jQuery -> $("#id").css("top","px");
+
+- Bubble
+event.cancelBubble = true;                  // =  event.stopPropagation();
+
+- click事件
+1. document.onclick = doAnimateShowXY;
+2. $(document).on("click", doAnimateShowXY);                    // jQuery -> $("#id").on("click", function);
+3. $(document).on("click",() => {doAnimateShowXY() });
+4. $("#boxclose").click(function);                              // jQuery -> $("#id").click(function);
+
+- QRcode
+<script type="text/javascript" src="jquery.qrcode.min.js"></script>         <!-- 放在jquery後面(屬於jQuery) -->
+<div id="qrcode"></div>                                                     <!-- 設定QRcode --> 
+$('#qrcode').qrcode("http://www.google.com");                               // $("#id").qrcode("url");
+
+var options = {                                     // 設定qrcode特性
+    text: "http://www.google.com", 
+    width: 100, 
+    height: 100
+};
+$('#qrcode').qrcode(options);
+
+
+- data屬性(html)
+<img id="imgDog"
+    src="images/dog.jpeg"
+    data-species="dog"   />                                                <!-- data-*  使用者自定義的屬性 -->
+
+var species = $(this).data("species");                                  // 儲存屬性資料： let s = $(this).data("species");
+if(species != "cat") {
+            $(this).fadeOut("fast");     }                              // $(this).fadeOut("fast");  淡出
+$(".pet").not("img[data-species = 'cat']").fadeTo("fast",0.50);         // .fadeTo("fast",0.50); 增加透明度(0.00 - 1.00)
+
+1. 
+for(let i in dataSpecies){
+     $(".pet").eq(i).data("species",dataSpecies[i]);
+}
+
+2. $.each(Array, function(){} ) 
+$.each(dataSpecies,function(i){                                         //   function(i, value)
+    $(".pet").eq(i).data("species",dataSpecies[i]);                     //   $(".pet").eq(i).data("species", value);
+})
+
+3. 對於什要放入新值的物件.each(function(key, 要加入data的物件))
+$(".pet").each(function (key, obj) {                           // $(".class").each(function(key, obj)){    
+    $(obj).data("species", speciesList[key]);                  // $(obj).data("data-*", Array[key]); }
+})
+
