@@ -58,6 +58,9 @@ $(".pet").each(function (key, obj) {                           // $(".class").ea
     $(obj).data("species", speciesList[key]);                  // $(obj).data("data-*", Array[key]); }
 })
 
+
+
+
 # 下拉式選單的選取變化
 $("#id" option:selected)	 當選單被選取
 $("#selectId").change(function (){}             // $("#下式選單").change      當下拉式選單被改變時，啟動
@@ -71,5 +74,10 @@ var li = $("<li></li>")                          // $() 可以直接傳一個新
 // $("#latestNews").append(li);                 // latestNews加入了一個物件        = li.appendTo("#latestNews");  
 li.appendTo("#latestNews");                     // 一個物件加入了latestNews
 
+$(".deleteItem").on("click", function () {
+    var index = $(this).closest("li").index();          // .closest("標籤").index()  可以找到離"標籤"最近得下標 (this -> button)
+}
 
-var index = $(this).closest("li").index();          // .closest("標籤").index()  可以找到離"標籤"最近得下標
+$("#newsModal").modal({ backdrop: "static" });      // ({}裡包物件) ，backdrop: "static" -> 只能點modal裡的按鈕，不能點空白處返回
+// ("#modalId").modal         -> 呼叫modal顯示對話盒
+// .prop("value") = .val()
