@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="jquery.min.js"></script>
 </head>
 <body>
 
@@ -28,6 +29,53 @@
 		</select> 
 		<input type="submit" value="OK" /> 
 	</form>
+
+	<div id="debug"></div>
+	<script>
+		
+		//法１	把 function獨立出來，document.ready後執行 setLetterNumber();
+		// $(document).ready(function(){			
+		// 	function setLetterNumber(){				// 	下拉式選單被改變，啟動
+		// 	var selectedLetter = $("#letter option:selected").text();			// $("#id" option:selected)	 當選單被選取
+		// 	var serverUrl = `./getLetterNumber.php?letter=${selectedLetter}`;		// http://localhost:8888/Lab_AJAX/getLetterNumber.php?letter=A
+		// 	$.ajax({
+		// 		type: "get",
+		// 		url: serverUrl
+		// 		// success: function(e){
+		// 		// 	$("#letterNumber").html(e);
+		// 		// }
+		// 	}).then(function(e){
+		// 		$("#letterNumber").html(e);			// 將 e 放入 #letterNumber
+		// 		console.log(e);						// e -> 會將getLetterNumber執行的結果輸出
+		// 	});
+		// }
+
+		// setLetterNumber();
+
+		// $("#letter").change(setLetterNumber);
+		// });
+		
+
+		// 法２		使用 trigger
+		$("#letter").change(function (){				// 	下拉式選單被改變，啟動
+			var selectedLetter = $("#letter option:selected").text();				// $("#id" option:selected)	 當選單被選取
+			var serverUrl = `./getLetterNumber.php?letter=${selectedLetter}`;		// 	呼叫到getLetterNumber		http://localhost:8888/Lab_AJAX/getLetterNumber.php?letter=A
+			$.ajax({
+				type: "get",
+				url: serverUrl
+				// success: function(e){
+				// 	$("#letterNumber").html(e);
+				// }
+			}).then(function(e){
+				$("#letterNumber").html(e);			// 將 e 放入 #letterNumber
+				console.log(e);						// e -> 會將getLetterNumber執行的結果輸出
+			});
+		});
+
+		$("#letter").trigger("change");				// trigger("事件")  -> 誘發事件
+
+		
+	</script>
 
 </body>
 </html>

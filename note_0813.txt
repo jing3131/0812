@@ -58,3 +58,18 @@ $(".pet").each(function (key, obj) {                           // $(".class").ea
     $(obj).data("species", speciesList[key]);                  // $(obj).data("data-*", Array[key]); }
 })
 
+# 下拉式選單的選取變化
+$("#id" option:selected)	 當選單被選取
+$("#selectId").change(function (){}             // $("#下式選單").change      當下拉式選單被改變時，啟動
+$("#letter").trigger("change");				    // trigger("事件")  -> 誘發事件
+
+# $.ajax 應用
+var li = $("<li></li>")                          // $() 可以直接傳一個新的標籤，做新增
+    .addClass("list-group-item")
+    .text(liText)
+
+// $("#latestNews").append(li);                 // latestNews加入了一個物件        = li.appendTo("#latestNews");  
+li.appendTo("#latestNews");                     // 一個物件加入了latestNews
+
+
+var index = $(this).closest("li").index();          // .closest("標籤").index()  可以找到離"標籤"最近得下標

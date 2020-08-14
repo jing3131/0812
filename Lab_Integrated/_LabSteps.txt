@@ -5,6 +5,7 @@ Lab: 綜合演練
 
 執行下列 SQL Script 以建立本次練習所需的資料庫。
 
+DROP DATABASE labDB;
 create database labDB default character set utf8;
 use labDB;
 create table news
@@ -24,7 +25,7 @@ select * from news;
 
 
 
-2. Node.js 設定
+2. Node.js 設定         // 終端機： node -v
 
 2.1 下載並安裝 Node.js 
     <Note>
